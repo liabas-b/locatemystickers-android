@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$APPLICATION_HOME_DIR$/sdk/extras/google/google_play_services/libproject" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="C:\Users\reclus_s\projects\LocateMyStickersProject" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
+
