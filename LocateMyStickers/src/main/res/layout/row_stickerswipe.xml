@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:lms="http://schemas.android.com/apk/res-auto"
              android:layout_width="fill_parent"
              android:layout_height="fill_parent">
 
@@ -72,25 +73,25 @@
         android:layout_below="@+id/ivpuce"
         android:layout_marginTop="15dp" />
     
-    <TextView
+    <com.locatemystickers.utils.TextViewPlus
         android:id="@+id/tvNameSticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivpuce"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/ivpuce"
-        android:textColor="@android:color/primary_text_light"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:singleLine="true"
+        lms:setCustomFont="defaultFont"/>
 
-    <TextView
+    <com.locatemystickers.utils.TextViewPlus
         android:id="@+id/tvUpdateAtSticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvNameSticker"
         android:layout_alignBottom="@+id/ivStatus"
-        android:textColor="@android:color/secondary_text_light"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-        
+        android:layout_alignBaseline="@+id/ivStatus"
+        android:singleLine="true"
+        lms:setCustomFont="mediumFont"/>
     </RelativeLayout>
 
 </FrameLayout>

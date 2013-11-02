@@ -155,4 +155,11 @@ public class UserActivity extends Fragment implements View.OnClickListener{
 		
 	}
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        //android.support.v4.app.FragmentTransaction _fragTrans = _sv.getSupportFragmentManager().beginTransaction();
+        //_fragTrans.remove();
+        //_fragTrans.commit();
+    }
 }

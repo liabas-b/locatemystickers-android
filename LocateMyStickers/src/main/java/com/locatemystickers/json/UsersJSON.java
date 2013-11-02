@@ -13,7 +13,7 @@ import java.util.List;
 
 public class UsersJSON extends ParseJSON {
 
-    public final static String URI = "http://web-service.locatemystickers.com/users.json";
+    public final static String URI = "https://locatemystickers-dev.herokuapp.com/users.json";
 
     public UsersJSON() {
         super();

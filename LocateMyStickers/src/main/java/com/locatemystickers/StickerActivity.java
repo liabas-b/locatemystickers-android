@@ -39,7 +39,7 @@ public class StickerActivity extends Fragment {
 
         SwipeListView swipelistview = (SwipeListView)v.findViewById(R.id.lvStickers);
         //  TODO check connexion from webservice
-        Singleton.getInstance()._sj = new StickersJSON(18);
+        Singleton.getInstance()._sj = new StickersJSON(1);
         _ls = new ArrayList<Sticker>();
         _pd = _pd.show(_sv, "Please wait", "Loading list of stickers...");
         Thread th = new Thread(new Runnable() {

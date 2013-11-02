@@ -41,5 +41,7 @@
             <enum name="dismiss" value="1"/>
         </attr>
     </declare-styleable>
-
+    <declare-styleable name="TextViewPlus">
+        <attr name="setCustomFont" format="string"/>
+    </declare-styleable>
 </resources>

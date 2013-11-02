@@ -7,6 +7,12 @@ buildscript {
 
     }
 }
+
+tasks.withType(Compile) {
+    options.compilerArgs << "-Xlint:deprecation"
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
 apply plugin: 'android'
 
 repositories {
@@ -31,8 +37,10 @@ android {
         }
     }
 }
+
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
     compile 'com.google.android.gms:play-services:3.2.65'
+    compile 'com.android.support:support-v4:13.0.0'
     compile fileTree(dir: '/libs', include: '*.jar')
 }

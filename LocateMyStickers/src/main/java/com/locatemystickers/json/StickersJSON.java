@@ -13,7 +13,7 @@ import android.util.Log;
 import com.locatemystickers.Sticker;
 
 public class StickersJSON  extends ParseJSON {
-	public final static String URL = "http://web-service.locatemystickers.com/users/";
+	public final static String URL = "https://locatemystickers-dev.herokuapp.com/users/";
 	public final static String FILE = "/stickers.json";
 
     private int _user_id;

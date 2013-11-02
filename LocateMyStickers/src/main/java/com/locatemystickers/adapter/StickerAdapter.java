@@ -59,7 +59,7 @@ public class StickerAdapter extends BaseAdapter {
     public void editRow() {
         _holder.name.setText(_sticker.get_name());
         JDate jdate = new JDate(_sticker.get_updated_at());
-        _holder.update_at.setText(jdate.toString(jdate.diffnow()));
+        _holder.update_at.setText(jdate.toStringDiffNow());
         if (_sticker.get_is_active())
             _holder.status.setImageResource(android.R.drawable.presence_online);
         else

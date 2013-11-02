@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 
 public class MapActivity extends Fragment {
     private ScreenView _sv;
     private GoogleMap _map;
-    private SupportMapFragment _mapView;
+    private SupportMapFragment _mapView = null;
     private FragmentTransaction _fragTrans;
 
     static MapActivity newInstance(ScreenView sv) {
@@ -36,11 +35,6 @@ public class MapActivity extends Fragment {
             _map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         }
         return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
     }
 
     @Override
