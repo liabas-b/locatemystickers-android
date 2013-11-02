@@ -53,7 +53,11 @@
             android:id="@+id/front"
             android:tag="front"
             style="@style/ListFrontContent">
-        
+
+    <View
+        android:id="@+id/vbarcolor"
+        android:layout_height="fill_parent"
+        android:layout_width="2px"/>
 	<ImageView
         android:id="@+id/ivpuce"
         android:layout_width="wrap_content"

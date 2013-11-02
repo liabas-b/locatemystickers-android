@@ -16,7 +16,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,6 +59,14 @@ public class StickerAdapter extends BaseAdapter {
     }
 
     public void editRow() {
+        try  {
+            if (!_sticker.get_color().equals("null"))
+                _holder.barcolor.setBackgroundColor(Color.parseColor(_sticker.get_color()));
+            else
+                _holder.barcolor.setBackgroundColor(Color.WHITE);
+        } catch (IllegalArgumentException e) {
+            Log.e(StickerAdapter.class.getName(), _sticker.get_name() + " - " + e.getMessage());
+        }
         _holder.name.setText(_sticker.get_name());
         JDate jdate = new JDate(_sticker.get_updated_at());
         _holder.update_at.setText(jdate.toStringDiffNow());
@@ -76,6 +86,7 @@ public class StickerAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) _sv.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.row_stickerswipe, parent, false);
             _holder = new ViewHolder();
+            _holder.barcolor = (View)convertView.findViewById(R.id.vbarcolor);
             _holder.name = (TextView)convertView.findViewById(R.id.tvNameSticker);
             _holder.update_at = (TextView)convertView.findViewById(R.id.tvUpdateAtSticker);
             _holder.status = (ImageView)convertView.findViewById(R.id.ivStatus);
@@ -157,6 +168,7 @@ public class StickerAdapter extends BaseAdapter {
 	}
 	
     class ViewHolder {
+        View barcolor;
     	TextView name;
     	TextView update_at;
     	ImageView status;

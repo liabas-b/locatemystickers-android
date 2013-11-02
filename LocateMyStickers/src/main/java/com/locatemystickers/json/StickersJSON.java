@@ -95,9 +95,13 @@ public class StickersJSON  extends ParseJSON {
 
     public static Sticker addSticker(JSONObject jObject) throws JSONException{
         return new Sticker(jObject.getString("code"),
+                jObject.getString("color"),
                 jObject.getString("created_at"),
                 jObject.getInt("id"),
                 jObject.getBoolean("is_active"),
+                jObject.getString("last_latitude"),
+                jObject.getString("last_location"),
+                jObject.getString("last_longitude"),
                 jObject.getString("name"),
                 jObject.getInt("sticker_type_id"),
                 jObject.getString("text"),
