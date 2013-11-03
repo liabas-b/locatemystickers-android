@@ -1,118 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
 
-        <View
-            android:id="@+id/horizontal_bar_3"
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:layout_below="@+id/tb_active"
-            android:background="#000" />
-        
-        <TextView
-            android:id="@+id/textActiveSince"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/horizontal_bar_3"
-            android:text="@string/s_eT_active_since"
-            android:textColor="@android:color/primary_text_light"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <View
-            android:id="@+id/horizontal_bar_4"
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:layout_below="@+id/textActiveSince"
-            android:background="#000" />
-
-        <TextView
-            android:id="@+id/textLastLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/horizontal_bar_4"
-            android:text="@string/s_eT_LastLocation"
-            android:textColor="@android:color/primary_text_light"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <View
-            android:id="@+id/horizontal_bar_5"
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:layout_below="@+id/textLastLocation"
-            android:background="#000" />
-
-        <TextView
-            android:id="@+id/textLastPosition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/horizontal_bar_5"
-            android:text="@string/s_eT_LastPosition"
-            android:textColor="@android:color/primary_text_light"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <View
-            android:id="@+id/horizontal_bar_6"
-            android:layout_width="fill_parent"
-            android:layout_height="1px"
-            android:layout_below="@+id/textLastPosition"
-            android:background="#000" />
-
-        <TextView
-            android:id="@+id/tv_lastlocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textLastPosition"
-            android:layout_alignLeft="@+id/tv_activesince"
-            android:textColor="@android:color/secondary_text_light"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tv_lastposition"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textLastPosition"
-            android:layout_alignLeft="@+id/tv_lastlocation"
-            android:textColor="@android:color/secondary_text_light"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/textNameSticker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/tb_active"
-            android:layout_toLeftOf="@+id/tv_activesince"
-            android:text="@string/s_eT_name"
-            android:textColor="@android:color/primary_text_light"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/tv_activesince"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textActiveSince"
-            android:layout_marginLeft="19dp"
-            android:layout_toRightOf="@+id/textActiveSince"
-            android:textColor="@android:color/secondary_text_light"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/tv_stickername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textActiveSince"
-            android:layout_alignLeft="@+id/tv_activesince"
-            android:textColor="@android:color/secondary_text_light"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <ToggleButton
-            android:id="@+id/tb_active"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="ToggleButton" />
-
-
-</RelativeLayout>
+</LinearLayout>

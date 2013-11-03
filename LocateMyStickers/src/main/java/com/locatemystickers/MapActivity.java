@@ -14,7 +14,6 @@ public class MapActivity extends Fragment {
     private ScreenView _sv;
     private GoogleMap _map;
     private SupportMapFragment _mapView = null;
-    private FragmentTransaction _fragTrans;
 
     static MapActivity newInstance(ScreenView sv) {
         return new MapActivity(sv);
@@ -40,8 +39,8 @@ public class MapActivity extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        FragmentTransaction _fragTrans = _sv.getSupportFragmentManager().beginTransaction();
-        _fragTrans.remove(_mapView);
-        _fragTrans.commit();
+        FragmentTransaction fragTrans = _sv.getSupportFragmentManager().beginTransaction();
+        fragTrans.remove(_mapView);
+        fragTrans.commit();
     }
 }
