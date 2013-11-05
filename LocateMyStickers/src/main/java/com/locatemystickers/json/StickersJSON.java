@@ -23,7 +23,7 @@ public class StickersJSON  extends ParseJSON {
 		_user_id = id_user;
 	}
 
-	public List<Sticker> readAllStickers() throws JSONException
+	public List<Sticker> readAllStickers()
 	{
 		List<Sticker> stickers = new ArrayList<Sticker>();
 		

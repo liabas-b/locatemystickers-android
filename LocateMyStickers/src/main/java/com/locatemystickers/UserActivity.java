@@ -22,11 +22,6 @@ import com.locatemystickers.utils.Utils;
 import org.json.JSONException;
 
 public class UserActivity extends Fragment implements View.OnClickListener{
-/*	private TopBarFragment topBarFragment;
-	private MenuFragment menuFragment;
-	private UserFragment userFragment;
-	private UserAccountInfoFragment userAccountInfoFragment;
-	private UserSettingsFragment userSettingsFragment;*/
     private ScreenView _sv;
     private int _nb = 0;
     private ImageView _you_sticker;
@@ -65,7 +60,7 @@ public class UserActivity extends Fragment implements View.OnClickListener{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        your_stickers.setText(getString(R.string.your_stickers) + " (" + Singleton.getInstance()._nbr_stickers + ")");
+        your_stickers.setText(getString(R.string.your_stickers) + " (" + Singleton.getInstance()._listStickers.size() + ")");
         tr_your_stickers.setOnClickListener(this);
         tr_sharring_stickers.setOnClickListener(this);
         tr_account_info.setOnClickListener(this);

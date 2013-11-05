@@ -144,7 +144,6 @@ public class StickerAdapter extends BaseAdapter {
 				        	Singleton.getInstance()._sj.deleteSticker(_sticker.get_id());
                             _stickers.remove(_sticker);
                             _swipeListView.closeAnimate(position);
-                            Singleton.getInstance()._nbr_stickers-=1;
 				        	StickerAdapter.this.notifyDataSetChanged();
 				        	break;
 				        case DialogInterface.BUTTON_NEGATIVE:

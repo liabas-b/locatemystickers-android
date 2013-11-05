@@ -22,7 +22,6 @@ public class Singleton {
     private static Singleton instance;
     public StickersJSON _sj;
     public UsersJSON _uj;
-    public int _nbr_stickers;
-    public List<Sticker> _listStickers;
+    public List<Sticker> _listStickers = null;
 
 }

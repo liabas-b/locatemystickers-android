@@ -26,15 +26,22 @@ import android.database.DataSetObserver;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import android.view.animation.RotateAnimation;
+import android.widget.AbsListView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * ListView subclass that provides the swipe functionality
  */
-public class SwipeListView extends ListView {
+public class SwipeListView extends ListView implements AbsListView.OnScrollListener {
 
     /**
      * Used when user want change swipe list mode on some rows
@@ -460,6 +467,11 @@ public class SwipeListView extends ListView {
         touchListener.setAnimationTime(animationTime);
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        return super.onTouchEvent(ev);
+    }
+
     /**
      * @see android.widget.ListView#onInterceptTouchEvent(android.view.MotionEvent)
      */
@@ -530,4 +542,13 @@ public class SwipeListView extends ListView {
         touchListener.closeOpenedItems();
     }
 
+    @Override
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        /*...*/
+    }
+
+    @Override
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+    }
 }

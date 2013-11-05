@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,7 +23,6 @@ import com.locatemystickers.json.StickersJSON;
 
 public class StickerActivity extends Fragment {
 	private ProgressDialog _pd;
-	private List<Sticker> _ls;
     private ScreenView _sv;
 
     static StickerActivity newInstance(ScreenView sv) {
@@ -36,22 +36,22 @@ public class StickerActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = View.inflate(_sv, R.layout.home_activity, container);
-
         SwipeListView swipelistview = (SwipeListView)v.findViewById(R.id.lvStickers);
-        //  TODO check connexion from webservice
         Singleton.getInstance()._sj = new StickersJSON(1);
-        _ls = new ArrayList<Sticker>();
+        if (Singleton.getInstance()._listStickers == null)
+            refreshListStickers();
+        swipelistview.setAdapter(new StickerAdapter(_sv, Singleton.getInstance()._listStickers, swipelistview));
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    private void refreshListStickers()
+    {
+        Singleton.getInstance()._listStickers = new ArrayList<Sticker>();
         _pd = _pd.show(_sv, "Please wait", "Loading list of stickers...");
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    _ls = Singleton.getInstance()._sj.readAllStickers();
-                    Singleton.getInstance()._listStickers = _ls;
-                    Singleton.getInstance()._nbr_stickers = _ls.size();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                Singleton.getInstance()._listStickers = Singleton.getInstance()._sj.readAllStickers();
                 _pd.dismiss();
             }
         });
@@ -61,7 +61,6 @@ public class StickerActivity extends Fragment {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        swipelistview.setAdapter(new StickerAdapter(_sv, _ls, swipelistview));
-        return super.onCreateView(inflater, container, savedInstanceState);
     }
 }
+

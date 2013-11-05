@@ -27,4 +27,5 @@
     <string name="s_stickers">Stickers</string>
     <string name="s_people">People</string>
     <string name="your_stickers">Your stickers</string>
+    <string name="pull_to_refresh_tap_label">Loading...</string>
 </resources>
