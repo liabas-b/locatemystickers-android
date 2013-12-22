@@ -1,0 +1,2 @@
+locatemystickers-android
+========================
