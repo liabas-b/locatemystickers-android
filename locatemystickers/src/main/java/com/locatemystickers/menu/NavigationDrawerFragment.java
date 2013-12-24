@@ -1,4 +1,4 @@
-package com.locatemystickers.Menu;
+package com.locatemystickers.menu;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -19,9 +19,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.locatemystickers.Menu.ItemMenu;
-import com.locatemystickers.Menu.MenuAdapter;
+import com.locatemystickers.menu.ItemMenu;
 import com.locatemystickers.R;
+import com.locatemystickers.menu.MenuAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

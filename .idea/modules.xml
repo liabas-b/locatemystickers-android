@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LocateMyStickers.iml" filepath="$PROJECT_DIR$/LocateMyStickers.iml" />
       <module fileurl="file://$PROJECT_DIR$/locatemystickers/locatemystickers.iml" filepath="$PROJECT_DIR$/locatemystickers/locatemystickers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/locatemystickers-android.iml" filepath="$PROJECT_DIR$/locatemystickers-android.iml" />
     </modules>
   </component>
 </project>

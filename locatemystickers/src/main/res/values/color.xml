@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#e3e3e3</color>
+    <color name="tabMedium">#2B2B2B</color>
+    <color name="tabDark">#000000</color>
+    <color name="tabTransparent">#10ffffff</color>
+    <color name="background_title">#CA3449</color>
+    <color name="background_list_back">#CA3449</color>
+    <color name="background_white">#FFFFFF</color>
+</resources>

@@ -1,4 +1,4 @@
-package com.locatemystickers.Menu;
+package com.locatemystickers.menu;
 
 public class ItemMenu {
     private Integer _imgMenu;

@@ -1,4 +1,4 @@
-package com.locatemystickers.Menu;
+package com.locatemystickers.menu;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.locatemystickers.Menu.ItemMenu;
+import com.locatemystickers.menu.ItemMenu;
 import com.locatemystickers.R;
 
 import java.util.List;

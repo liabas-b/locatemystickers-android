@@ -11,4 +11,8 @@
     <string name="s_tv_logIn">You must have an account on locateMyStickers.com to this app.</string>
     <string name="s_btn_auth">Login</string>
 
+    <string name="s_Quest01">Are you sure?</string>
+
+    <string name="s_Msg01">Your are not connected.</string>
+
 </resources>
