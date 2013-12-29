@@ -100,7 +100,7 @@ public class StickerAdapter extends BaseAdapter {
                 Thread t = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                       // _sticker = Singleton.getInstance()._sj.readSticker(_sticker.get_id());
+                       _sticker = Singleton.getInstance()._sj.readSticker(_sticker.get_id());
                     }
                 });
 				t.start();

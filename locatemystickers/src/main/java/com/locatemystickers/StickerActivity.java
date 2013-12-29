@@ -21,7 +21,7 @@ public class StickerActivity extends Fragment {
     private MenuActivity _context;
     private ProgressDialog _pd;
 
-    static StickerActivity newInstance(MenuActivity context) {
+    public static Fragment newInstance(MenuActivity context) {
         return new StickerActivity(context);
     }
 
