@@ -3,6 +3,7 @@ package com.locatemystickers;
 import com.locatemystickers.json.StickersJSON;
 import com.locatemystickers.json.UsersJSON;
 import com.locatemystickers.type.Sticker;
+import com.locatemystickers.type.User;
 
 import java.util.List;
 
@@ -19,5 +20,5 @@ public class Singleton {
     public StickersJSON _sj;
     public UsersJSON _uj = new UsersJSON();
     public List<Sticker> _listStickers = null;
-    //TODO public User _user;
+    public User _user;
 }

@@ -18,10 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.locatemystickers.R;
 import com.locatemystickers.StickerActivity;
+import com.locatemystickers.UserActivity;
 
 public class MenuActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -51,8 +53,10 @@ public class MenuActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    private final void fragIntent(Fragment frag)
+    public final void fragIntent(Fragment frag)
     {
+        FrameLayout frml = (FrameLayout)findViewById(R.id.container);
+        frml.removeAllViewsInLayout();
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, frag)
@@ -63,17 +67,18 @@ public class MenuActivity extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         switch (position+1) {
-            case 1:
+            case 1://Map
 
                 break;
-            case 2:
+            case 2://Stickers
                 fragIntent(StickerActivity.newInstance(this));
                 break;
-            case 3:
+            case 3://User
+                fragIntent(UserActivity.newInstance(this));
                 break;
-            case 4:
+            case 4://Friends
                 break;
-            case 5:
+            case 5://Search
                 break;
         }
     }
