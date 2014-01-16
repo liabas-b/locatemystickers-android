@@ -41,18 +41,17 @@ public class UserActivity extends Fragment implements View.OnClickListener {
        // _topBarTextView = (TextView)_context.findViewById(R.id.topbar_textview);
        // _topBarBackTextView = (TextView)_context.findViewById(R.id.topbar_back_textview);
        // _topBarBackImageButton = (ImageButton)_context.findViewById(R.id.topbar_back_imagebutton);
-        TableRow tr_your_stickers = (TableRow)v.findViewById(R.id.your_stickers_row);
-        TableRow tr_sharring_stickers = (TableRow)v.findViewById(R.id.sharring_stickers_row);
-        TableRow tr_account_info = (TableRow)v.findViewById(R.id.account_info_row);
-        TableRow tr_log_out = (TableRow)v.findViewById(R.id.log_out_row);
-        TableRow tr_settings = (TableRow)v.findViewById(R.id.settings_row);
-        TextView your_stickers = (TextView)v.findViewById(R.id.your_stickers_textview);
-        _you_sticker = (ImageView)v.findViewById(R.id.you_sticker);
+
+//        TableRow tr_your_stickers = (TableRow)v.findViewById(R.id.your_stickers_row);
+//        TableRow tr_sharring_stickers = (TableRow)v.findViewById(R.id.sharring_stickers_row);
+//        TableRow tr_account_info = (TableRow)v.findViewById(R.id.account_info_row);
+//        TextView your_stickers = (TextView)v.findViewById(R.id.your_stickers_textview);
+        _you_sticker = (ImageView)v.findViewById(R.id.user_qrcode);
         _pd = _pd.show(_context, "Please wait", "Loading...");
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
-                Singleton.getInstance()._user = Singleton.getInstance()._uj.readUser(4);
+                Singleton.getInstance()._user = Singleton.getInstance()._uj.readUser(1);
                 _pd.dismiss();
             }
         });
@@ -75,18 +74,24 @@ public class UserActivity extends Fragment implements View.OnClickListener {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        TextView name = (TextView) v.findViewById(R.id.user_name);
+        TextView city = (TextView) v.findViewById(R.id.user_location);
+        if (Singleton.getInstance()._user != null)
+        {
+            name.setText(Singleton.getInstance()._user.get_name().toString());
+            city.setText('@' + Singleton.getInstance()._user.get_city().toString());
+        }
+
 //        your_stickers.setText(getString(R.string.your_stickers) + " (" + Singleton.getInstance()._listStickers.size() + ")");
-        tr_your_stickers.setOnClickListener(this);
-        tr_sharring_stickers.setOnClickListener(this);
-        tr_account_info.setOnClickListener(this);
-        tr_log_out.setOnClickListener(this);
-        tr_settings.setOnClickListener(this);
+//        tr_your_stickers.setOnClickListener(this);
+//        tr_sharring_stickers.setOnClickListener(this);
+//        tr_account_info.setOnClickListener(this);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()) {
+/*        switch(v.getId()) {
             case R.id.your_stickers_row:
                 goToYourStickersActivity(v);
                 break;
@@ -96,14 +101,8 @@ public class UserActivity extends Fragment implements View.OnClickListener {
             case R.id.account_info_row:
                 goToUserAccountInfoActivity(v);
                 break;
-            case R.id.log_out_row:
-                goToLogOutActivity(v);
-                break;
-            case R.id.settings_row:
-                goToUserSettingsActivity(v);
-                break;
         }
-    }
+*/    }
 /*
     public static  void goToBackActivity(MenuActivity context) {
         context.fragIntent(UserActivity.newInstance(context));
@@ -123,27 +122,6 @@ public class UserActivity extends Fragment implements View.OnClickListener {
     }
 
     public void goToSharringStickersActivity(final View v) {
-
-    }
-
-    public void goToUserAccountInfoActivity(final View v) {
-        /*_topBarTextView.setText("Account Info");
-        _topBarBackTextView.setVisibility(View.VISIBLE);
-        _topBarBackImageButton.setVisibility(View.VISIBLE);*/
-        _context.fragIntent(UserAccountInfoFragment.newInstance(_context));
-    }
-
-    public void goToLogOutActivity(final View v) {
-        Intent i = new Intent(_context, MainActivity.class);
-        _context.startActivity(i);
-        _context.finish();
-    }
-
-    public void goToUserSettingsActivity(final View v) {
-        /*_topBarTextView.setText("Settings");
-        _topBarBackTextView.setVisibility(View.VISIBLE);
-        _topBarBackImageButton.setVisibility(View.VISIBLE);*/
-        _context.fragIntent(UserSettingsFragment.newInstance(_context));
 
     }
 

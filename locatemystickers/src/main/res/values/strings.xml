@@ -6,10 +6,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
+    <string name="s_eT_lms">Locate My Stickers</string>
     <string name="s_eT_login">Login</string>
     <string name="s_eT_password">Password</string>
-    <string name="s_tv_logIn">You must have an account on locateMyStickers.com to this app.</string>
+    <string name="s_tv_logIn">Or login with your favorite service</string>
     <string name="s_btn_auth">Login</string>
+    <string name="s_eT_mail">Email</string>
 
     <string name="your_stickers">Your stickers</string>
 

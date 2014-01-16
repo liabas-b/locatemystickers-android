@@ -3,7 +3,7 @@ package com.locatemystickers.type;
 public class User {
 
     private boolean _is_admin;
-    private String _adress;
+    private String _address;
     private String _city;
     private int _compteur;
     private String _country;
@@ -21,13 +21,13 @@ public class User {
 
     public User() {}
 
-    public User(String adress,
+    public User(String address,
                 String city,
                 int compteur,
                 String country,
                 String email,
                 String name) {
-        _adress = adress;
+        _address = address;
         _city = city;
         _compteur = compteur;
         _country = country;
@@ -36,7 +36,7 @@ public class User {
     }
 
     public User(boolean _is_admin,
-                String _adress,
+                String _address,
                 String _city,
                 int _compteur,
                 String _country,
@@ -52,7 +52,7 @@ public class User {
                 String _updated_at,
                 String _zip_code) {
         this._is_admin = _is_admin;
-        this._adress = _adress;
+        this._address = _address;
         this._city = _city;
         this._compteur = _compteur;
         this._country = _country;
@@ -77,12 +77,12 @@ public class User {
         this._is_admin = _is_admin;
     }
 
-    public String get_adress() {
-        return _adress;
+    public String get_address() {
+        return _address;
     }
 
-    public void set_adress(String _adress) {
-        this._adress = _adress;
+    public void set_address(String _address) {
+        this._address = _address;
     }
 
     public String get_city() {
