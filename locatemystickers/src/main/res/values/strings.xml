@@ -21,5 +21,9 @@
 
     <string name="lms_user_error_name">Error loading name</string>
     <string name="lms_user_error_city">Error loading city</string>
+    <string name="lms_user_error_followers">Error loading followers</string>
+    <string name="lms_user_error_following">Error loading following</string>
+    <string name="lms_user_error_stickers">Error loading stickers</string>
+    <string name="lms_user_error_friends">Error loading friends</string>
 
 </resources>
