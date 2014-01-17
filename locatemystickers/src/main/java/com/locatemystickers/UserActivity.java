@@ -129,10 +129,6 @@ public class UserActivity extends Fragment implements View.OnClickListener {
 
     }
 
-    public void onUserSettingsDisplayToggleButtonClicked(final View v) {
-
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
