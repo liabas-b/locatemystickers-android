@@ -19,4 +19,7 @@
 
     <string name="s_Msg01">Your are not connected.</string>
 
+    <string name="lms_user_error_name">Error loading name</string>
+    <string name="lms_user_error_city">Error loading city</string>
+
 </resources>

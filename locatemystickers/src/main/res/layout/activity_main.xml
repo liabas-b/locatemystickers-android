@@ -32,7 +32,6 @@
         android:text="@string/s_eT_lms"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#3e444b"
-        android:colo
         android:gravity="center" />
 
 	<EditText
