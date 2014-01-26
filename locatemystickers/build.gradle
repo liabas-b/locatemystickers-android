@@ -28,10 +28,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+    signingConfigs {
+        debug {
+            storeFile file("../certif.jks")
+            storePassword "Azefgh456"
+            keyAlias "locatemystickers"
+            keyPassword "Azefgh456"
+        }
+    }
+
 }
 
 dependencies {
     compile 'com.android.support:support-v4:+'
+    compile 'com.google.android.gms:play-services:4.0.30'
     compile files('libs/nineoldandroids-2.4.0.jar')
     compile files('libs/core-2.2.jar')
 }

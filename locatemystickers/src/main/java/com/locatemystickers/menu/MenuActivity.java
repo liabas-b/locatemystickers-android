@@ -12,6 +12,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,11 +22,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.locatemystickers.MapActivity;
 import com.locatemystickers.R;
 import com.locatemystickers.StickerActivity;
 import com.locatemystickers.UserActivity;
 
-public class MenuActivity extends Activity
+public class MenuActivity extends FragmentActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -55,12 +57,17 @@ public class MenuActivity extends Activity
 
     public final void fragIntent(Fragment frag)
     {
-        FrameLayout frml = (FrameLayout)findViewById(R.id.container);
-        frml.removeAllViewsInLayout();
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, frag)
-                .commit();
+        try {
+           FrameLayout frml = (FrameLayout)findViewById(R.id.container);
+           if (frml != null)
+            frml.removeAllViewsInLayout();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, frag)
+                    .commit();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -68,7 +75,7 @@ public class MenuActivity extends Activity
         // update the main content by replacing fragments
         switch (position+1) {
             case 1://Map
-
+                fragIntent(MapActivity.newInstance(this));
                 break;
             case 2://Stickers
                 fragIntent(StickerActivity.newInstance(this));
