@@ -77,25 +77,23 @@
         android:layout_below="@+id/ivpuce"
         android:layout_marginTop="15dp" />
     
-    <com.locatemystickers.utils.TextViewPlus
+    <TextView
         android:id="@+id/tvNameSticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivpuce"
         android:layout_marginLeft="5dp"
         android:layout_toRightOf="@+id/ivpuce"
-        android:singleLine="true"
-        lms:setCustomFont="defaultFont"/>
+        android:singleLine="true"/>
 
-    <com.locatemystickers.utils.TextViewPlus
+    <TextView
         android:id="@+id/tvUpdateAtSticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvNameSticker"
         android:layout_alignBottom="@+id/ivStatus"
         android:layout_alignBaseline="@+id/ivStatus"
-        android:singleLine="true"
-        lms:setCustomFont="mediumFont"/>
+        android:singleLine="true"/>
     </RelativeLayout>
 
 </FrameLayout>

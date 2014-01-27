@@ -1,9 +1,9 @@
 package com.locatemystickers;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -117,7 +117,7 @@ public class UserActivity extends Fragment implements View.OnClickListener {
     public void goToYourStickersActivity(final View v) {
 /*        final TextView topBarTextView = (TextView)_context.findViewById(R.id.topbar_textview);
         topBarTextView.setText("Stickers");*/
-        _context.fragIntent(StickerActivity.newInstance(_context));
+        //_context.fragIntent(StickerActivity.newInstance(_context));
 
     }
 

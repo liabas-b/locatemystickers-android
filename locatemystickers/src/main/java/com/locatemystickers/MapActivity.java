@@ -1,8 +1,8 @@
 package com.locatemystickers;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.locatemystickers.menu.MenuActivity;
 
-public class MapActivity extends Fragment{
+public class MapActivity extends Fragment {
 
     private MenuActivity _context;
 

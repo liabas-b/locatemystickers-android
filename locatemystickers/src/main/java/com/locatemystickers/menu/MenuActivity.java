@@ -4,7 +4,6 @@ import android.app.Activity;
 ;
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -55,38 +55,30 @@ public class MenuActivity extends FragmentActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    public final void fragIntent(Fragment frag)
-    {
-        try {
-           FrameLayout frml = (FrameLayout)findViewById(R.id.container);
-           if (frml != null)
-            frml.removeAllViewsInLayout();
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, frag)
-                    .commit();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.Fragment frag = null;
         switch (position+1) {
             case 1://Map
-                fragIntent(MapActivity.newInstance(this));
+                frag = MapActivity.newInstance(this);
                 break;
             case 2://Stickers
-                fragIntent(StickerActivity.newInstance(this));
+                frag = StickerActivity.newInstance(this);
                 break;
             case 3://User
-                fragIntent(UserActivity.newInstance(this));
+                frag = UserActivity.newInstance(this);
                 break;
             case 4://Friends
                 break;
             case 5://Search
                 break;
+        }
+        if (frag != null) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, frag)
+                    .commit();
         }
     }
 
