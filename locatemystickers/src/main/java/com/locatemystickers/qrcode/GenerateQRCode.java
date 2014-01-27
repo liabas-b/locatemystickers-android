@@ -9,6 +9,7 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import android.graphics.*;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
@@ -19,10 +20,26 @@ import java.io.OutputStream;
 import java.util.Hashtable;
 
 
-public class GenerateQRCode {
-    public GenerateQRCode() {}
+public class GenerateQRCode extends AsyncTask<String, Void, Void>{
+    private int _size = 128;
 
-    public Bitmap createQRImage(String qrCodeText, int size) throws WriterException, IOException
+    public GenerateQRCode() {
+
+    }
+
+    @Override
+    protected Void doInBackground(String... params) {
+        try {
+            createQRImage(params[0], _size);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private Bitmap createQRImage(String qrCodeText, int size) throws WriterException, IOException
     {
         Hashtable hintMap = new Hashtable();
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
