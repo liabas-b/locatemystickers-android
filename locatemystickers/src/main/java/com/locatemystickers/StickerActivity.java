@@ -2,6 +2,7 @@ package com.locatemystickers;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ public class StickerActivity extends Fragment {
 
     private MenuActivity _context;
     private ProgressDialog _pd;
-
+    private SwipeListView _swipelistview;
     public static Fragment newInstance(MenuActivity context) {
         return new StickerActivity(context);
     }
@@ -32,31 +33,48 @@ public class StickerActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = View.inflate(_context, R.layout.stickers_activity, container);
-        SwipeListView swipelistview = (SwipeListView)v.findViewById(R.id.lvStickers);
+        _swipelistview = (SwipeListView)v.findViewById(R.id.lvStickers);
         Singleton.getInstance()._sj = new StickersJSON(1);
-        if (Singleton.getInstance()._listStickers == null)
-            refreshListStickers();
-        swipelistview.setAdapter(new StickerAdapter(_context, Singleton.getInstance()._listStickers, swipelistview));
+        new StickerSyn().execute();
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    private void refreshListStickers()
-    {
-        Singleton.getInstance()._listStickers = new ArrayList<Sticker>();
-        _pd = _pd.show(_context, "Please wait", "Loading list of stickers...");
-        Thread th = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Singleton.getInstance()._listStickers = Singleton.getInstance()._sj.readAllStickers();
-                _pd.dismiss();
-            }
-        });
-        th.start();
-        try {
-            th.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public class StickerSyn extends AsyncTask<Void, Void, Void> {
+        public StickerSyn() {
+            super();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            Singleton.getInstance()._listStickers = new ArrayList<Sticker>();
+            Singleton.getInstance()._listStickers = Singleton.getInstance()._sj.readAllStickers();
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            _swipelistview.setAdapter(new StickerAdapter(_context, Singleton.getInstance()._listStickers, _swipelistview));
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onCancelled(Void aVoid) {
+            super.onCancelled(aVoid);
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
         }
     }
-
 }
