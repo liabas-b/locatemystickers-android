@@ -32,11 +32,11 @@ public class StickerActivity extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = View.inflate(_context, R.layout.stickers_activity, container);
-        _swipelistview = (SwipeListView)v.findViewById(R.id.lvStickers);
+        View view = inflater.inflate(R.layout.stickers_activity, container, false);
+        _swipelistview = (SwipeListView)view.findViewById(R.id.lvStickers);
         Singleton.getInstance()._sj = new StickersJSON(1);
         new StickerSyn().execute();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     public class StickerSyn extends AsyncTask<Void, Void, Void> {

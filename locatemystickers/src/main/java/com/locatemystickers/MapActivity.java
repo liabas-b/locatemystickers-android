@@ -28,8 +28,10 @@ public class MapActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.map_activity, container, false);
-        SupportMapFragment mapView = (SupportMapFragment)_context.getSupportFragmentManager().findFragmentById(R.id.mapView);
-        GoogleMap googleMap = mapView.getMap();
+        if (savedInstanceState == null) {
+            SupportMapFragment mapView = (SupportMapFragment)_context.getSupportFragmentManager().findFragmentById(R.id.mapView);
+            GoogleMap googleMap = mapView.getMap();
+        }
         return view;
     }
 }
