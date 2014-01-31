@@ -1,16 +1,31 @@
 package com.locatemystickers;
 
 import android.app.FragmentTransaction;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.locatemystickers.json.StickersJSON;
 import com.locatemystickers.menu.MenuActivity;
+import com.locatemystickers.type.Sticker;
 import com.locatemystickers.utils.MyMapFragment;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MapActivity extends Fragment implements MyMapFragment.MapCallBack {
 
@@ -18,7 +33,10 @@ public class MapActivity extends Fragment implements MyMapFragment.MapCallBack {
 
     private MenuActivity _context;
     private MyMapFragment _mapFragment = null;
-    GoogleMap _googleMap = null;
+    private GoogleMap _googleMap = null;
+    private Timer _timerStickers;
+    private Map<Integer, Marker> _mMaker;
+    private final Handler _handler = new Handler();
 
     public static Fragment newInstance(MenuActivity context) {
         return new MapActivity(context);
@@ -26,6 +44,8 @@ public class MapActivity extends Fragment implements MyMapFragment.MapCallBack {
 
     public MapActivity(MenuActivity context) {
         _context = context;
+        _timerStickers = new Timer();
+        _mMaker = new HashMap<Integer, Marker>();
     }
 
     @Override
@@ -49,32 +69,64 @@ public class MapActivity extends Fragment implements MyMapFragment.MapCallBack {
 
     private void setUpMap() {
         _googleMap.setMyLocationEnabled(true);
-        // code HERE
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
+        _googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        TimerTask timerTaskSitckers = new TimerTask() {
+            @Override
+            public void run() {
+                new MarkersSync().execute();
+            }
+        };
+        _timerStickers.schedule(timerTaskSitckers, 0, 2000);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        _context.getFragmentManager().beginTransaction().remove(_mapFragment).commit();
+    }
+// -----------------------------------------------------------------------
+//  Display in background the Marker on the map
+// -----------------------------------------------------------------------
+
+    public class MarkersSync extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            Singleton.getInstance()._listStickers = new StickersJSON(Singleton.getInstance()._id).readAllStickers();
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            for (Sticker s: Singleton.getInstance()._listStickers) {
+                if (!s.get_last_latitude().equals("null") && !s.get_last_longitude().equals("null")) {
+                    _mMaker.put(s.get_id(), _googleMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Double.parseDouble(s.get_last_latitude()),
+                                    Double.parseDouble(s.get_last_longitude())))
+                            .title(s.get_name())
+                            .snippet(s.get_text())
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher))));
+                }
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onCancelled(Void aVoid) {
+            super.onCancelled(aVoid);
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+        }
     }
 }
