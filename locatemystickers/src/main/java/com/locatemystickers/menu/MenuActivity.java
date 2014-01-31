@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.locatemystickers.MapActivity;
 import com.locatemystickers.R;
+import com.locatemystickers.SearchActivity;
 import com.locatemystickers.StickerActivity;
 import com.locatemystickers.UserActivity;
 
@@ -71,8 +72,10 @@ public class MenuActivity extends FragmentActivity
                 frag = UserActivity.newInstance(this);
                 break;
             case 4://Friends
+                frag = new android.support.v4.app.Fragment();
                 break;
             case 5://Search
+                frag = SearchActivity.newInstance(this);
                 break;
         }
         if (frag != null) {

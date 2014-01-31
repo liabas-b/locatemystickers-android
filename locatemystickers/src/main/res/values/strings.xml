@@ -26,4 +26,9 @@
     <string name="lms_user_error_stickers">Error loading stickers</string>
     <string name="lms_user_error_friends">Error loading friends</string>
 
+    <string name="lms_search_everything">Everything</string>
+    <string name="lms_search_stickers">Stickers</string>
+    <string name="lms_search_people">People</string>
+
+
 </resources>
