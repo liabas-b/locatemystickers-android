@@ -82,12 +82,13 @@ public class MapActivity extends Fragment implements MyMapFragment.MapCallBack {
                 new MarkersSync().execute();
             }
         };
-        _timerStickers.schedule(timerTaskSitckers, 0, 2000);
+        _timerStickers.schedule(timerTaskSitckers, 0, 1000);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        _timerStickers.purge();
     }
 
 // -----------------------------------------------------------------------

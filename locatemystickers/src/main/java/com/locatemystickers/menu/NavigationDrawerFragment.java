@@ -37,7 +37,7 @@ public class NavigationDrawerFragment extends Fragment {
         add(new ItemMenu(R.drawable.map, "Map"));
         add(new ItemMenu(R.drawable.sticker, "Stickers"));
         add(new ItemMenu(R.drawable.user, "User"));
-        add(new ItemMenu(R.drawable.friends, "Friends"));
+        //add(new ItemMenu(R.drawable.friends, "Friends"));
         add(new ItemMenu(R.drawable.search, "Search"));
     }};
 

@@ -71,10 +71,12 @@ public class MenuActivity extends FragmentActivity
             case 3://User
                 frag = UserActivity.newInstance(this);
                 break;
+            /*
             case 4://Friends
                 frag = new android.support.v4.app.Fragment();
                 break;
-            case 5://Search
+                */
+            case 4://Search
                 frag = SearchActivity.newInstance(this);
                 break;
         }
