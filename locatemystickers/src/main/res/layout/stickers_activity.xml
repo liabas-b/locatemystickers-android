@@ -2,18 +2,32 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <com.ged74.swipelistview.SwipeListView
-        xmlns:swipe="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/lvStickers"
-        android:listSelector="#00000000"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        swipe:swipeFrontView="@+id/front"
-        swipe:swipeBackView="@+id/back"
-        swipe:swipeActionLeft="reveal"
-        swipe:swipeCloseAllItemsWhenMoveList="true"
-        swipe:swipeMode="both"/>
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frmlayout">
+        <com.ged74.swipelistview.SwipeListView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:swipe="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/lvStickers"
+            android:listSelector="#00000000"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="8"
+            swipe:swipeFrontView="@+id/front"
+            swipe:swipeBackView="@+id/back"
+            swipe:swipeActionLeft="reveal"
+            swipe:swipeCloseAllItemsWhenMoveList="true"
+            swipe:swipeMode="both"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+    </FrameLayout>
+
 </LinearLayout>
