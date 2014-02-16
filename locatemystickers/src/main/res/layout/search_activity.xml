@@ -9,7 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:imeOptions="actionDone"/>
 
     <com.locatemystickers.utils.SegmentedRadioGroup
         android:id="@+id/segment_text"
@@ -23,7 +24,7 @@
         android:gravity="fill_horizontal"
         android:baselineAligned="true"
         android:layout_marginTop="-50dp">
-        <RadioButton android:id="@id/btn_everything"
+<!--        <RadioButton android:id="@id/btn_everything"
             android:layout_width="wrap_content"
             android:layout_weight="0.3"
             android:minHeight="35dip"
@@ -32,7 +33,7 @@
             android:button="@null"
             android:gravity="center"
             android:textColor="@drawable/radio_colors"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"/> -->
         <RadioButton android:id="@+id/btn_stickers"
             android:layout_width="wrap_content"
             android:layout_weight="0.3"

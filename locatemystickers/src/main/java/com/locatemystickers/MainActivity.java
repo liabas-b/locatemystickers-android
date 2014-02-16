@@ -18,7 +18,7 @@ public class MainActivity extends Activity{
             @Override
             public void onClick(View v) {
                 // TODO check connection before
-                Singleton.getInstance()._id = 1;
+                Singleton.getInstance()._id = 10;
                 Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(intent);
                 finish();

@@ -17,7 +17,7 @@ public class StickersJSON  extends ParseJSON {
 	public final static String URL = "https://locatemystickers-dev.herokuapp.com/users/";
 	public final static String FILE = "/stickers.json";
 
-    private int _user_id;
+    private final int _user_id;
 	
 	public StickersJSON(int id_user) {
 		super();

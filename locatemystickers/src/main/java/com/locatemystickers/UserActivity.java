@@ -14,8 +14,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.locatemystickers.R;
+import com.locatemystickers.json.UsersJSON;
 import com.locatemystickers.menu.MenuActivity;
 import com.locatemystickers.qrcode.GenerateQRCode;
+import com.locatemystickers.type.User;
 import com.locatemystickers.utils.Utils;
 
 public class UserActivity extends Fragment {
@@ -31,6 +33,7 @@ public class UserActivity extends Fragment {
 
     public UserActivity(MenuActivity context) {
         _context = context;
+        new UserSync().execute();
     }
 
     @Override
@@ -43,15 +46,17 @@ public class UserActivity extends Fragment {
         return view;
     }
 
-    public class UserSync extends AsyncTask<Void, Void, Void> {
+    public class UserSync extends AsyncTask<Void, Void, User> {
+        private User _user;
+
         public UserSync() {
             super();
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
-            Singleton.getInstance()._user = Singleton.getInstance()._uj.readUser(1);
-            return null;
+        protected User doInBackground(Void... params) {
+            _user = new UsersJSON().readUser(Singleton.getInstance()._id);
+            return _user;
         }
 
         @Override
@@ -60,12 +65,12 @@ public class UserActivity extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            if (Singleton.getInstance()._user != null)
+        protected void onPostExecute(User user) {
+            super.onPostExecute(user);
+            if (_user != null)
             {
-                _name.setText(Singleton.getInstance()._user.get_name().toString());
-                _city.setText('@' + Singleton.getInstance()._user.get_city().toString());
+                _name.setText(_user.get_name().toString());
+                _city.setText('@' + _user.get_city().toString());
             }
         }
 
@@ -75,7 +80,7 @@ public class UserActivity extends Fragment {
         }
 
         @Override
-        protected void onCancelled(Void aVoid) {
+        protected void onCancelled(User aVoid) {
             super.onCancelled(aVoid);
         }
 
